@@ -65,7 +65,7 @@ G1 Z10 ;Raise Z more
 G90 ;Absolute positioning
 
 ;G1 X0 Y{machine_depth} ;Present print
-G1 X0 Y110 ;Present print
+G1 X{machine_width} Y110 ;Present print
 
 M106 S0 ;Turn-off fan
 M104 S0 ;Turn-off hotend
