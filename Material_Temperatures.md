@@ -20,9 +20,14 @@
 - Nozzle: 200
 - Bed: 60
 
+## Overture PETG
+
+- Nozzle: 240
+- Bed: 80
+
 ## Polymaker PETG
 
-- Nozzle: 235
+- Nozzle: 235-240
 - Bed: 80
 
 ## Polymaker PLA+
