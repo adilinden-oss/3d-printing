@@ -1,4 +1,4 @@
-# My Ender-3
+# My Ender-5
 
 These are my settings for the "Obnoxious" Ender-5
  
