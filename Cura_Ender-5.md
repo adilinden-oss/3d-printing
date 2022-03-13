@@ -28,6 +28,15 @@ These are my settings for the "Obnoxious" Ender-5
 
 ```
 ; Adi Ender-5 Custom Start G-code
+
+; Concurrent preheating (overrride Cura steam engine auto generated)
+M140 S{material_bed_temperature_layer_0} ; start preheating the bed
+M104 S{material_print_temperature_layer_0} ﻿T0 ; start preheating hotend
+M190 S{material_bed_temperature_layer_0} ; heat to Cura Bed setting 
+M109 S{material_print_temperature_layer_0} ﻿T0 ; heat to Cura Hotend
+M82 ;absolute extrusion mode (from orginal Cura G-code)
+
+; Mostly Cura default for Ender-5
 M201 X500.00 Y500.00 Z100.00 E5000.00 ;Setup machine max acceleration
 M203 X500.00 Y500.00 Z10.00 E50.00 ;Setup machine max feedrate
 M204 P500.00 R1000.00 T500.00 ;Setup Print/Retract/Travel acceleration
