@@ -10,6 +10,14 @@
 - Nozzle: 210
 - Bed: 60
 
+
+## Hatchbox Wood PLA
+
+**NOte:** Needs more tweaking, flows nice but strings like crazy
+
+- Nozzle: 210
+- Bed: 50
+
 ## Hatchbox PLA
 
 - Nozzle: 200
