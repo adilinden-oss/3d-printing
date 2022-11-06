@@ -41,9 +41,9 @@ Cloning Cura's stock **Ender-3 Pro** profile yields no go areas for a build plat
 
 ; Concurrent preheating (overrride Cura steam engine auto generated)
 M140 S{material_bed_temperature_layer_0} ; start preheating the bed
-M104 S{material_print_temperature_layer_0} ﻿T0 ; start preheating hotend
+M104 S{material_print_temperature_layer_0} T0 ; start preheating hotend
 M190 S{material_bed_temperature_layer_0} ; heat to Cura Bed setting 
-M109 S{material_print_temperature_layer_0} ﻿T0 ; heat to Cura Hotend
+M109 S{material_print_temperature_layer_0} T0 ; heat to Cura Hotend
 M82 ;absolute extrusion mode (from orginal Cura G-code)
 
 G92 E0 ; Reset Extruder
