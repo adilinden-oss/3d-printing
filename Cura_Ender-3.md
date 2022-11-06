@@ -10,8 +10,7 @@ Cloning Cura's stock **Ender-3** profile yields no go areas for a build plate at
 
 ### Magnetic Build Plate
 
-Cloning Cura's stock **Ender-3 Pro** profile yields no go areas for a build plate attached with binder clips, such as a glass plate.
- 
+Cloning Cura's stock **Ender-3 Pro** profile yields no go areas for a build plate attached with magnetic
 ## Settings
 
 ### Printer
@@ -39,16 +38,22 @@ Cloning Cura's stock **Ender-3 Pro** profile yields no go areas for a build plat
 ```
 ; Adi Ender-3 Custom Start G-code
 
-; Concurrent preheating (overrride Cura steam engine auto generated)
-M140 S{material_bed_temperature_layer_0}       ;Start preheating the bed
-M104 S{material_print_temperature_layer_0} T0  ;Start preheating hotend
-M190 S{material_bed_temperature_layer_0}       ;Heat to Cura Bed setting 
-M109 S{material_print_temperature_layer_0} T0  ;Heat to Cura Hotend
-M82                                            ;Absolute extrusion mode (from orginal Cura G-code)
+; Concurrent preheating 
+M140 S{material_bed_temperature_layer_0}  ;Set bed temp
+M104 S160 T0                              ;Set no-ooze hotend temp
+M190 S{material_bed_temperature_layer_0}  ;Wait for bed to warm up 
+M109 S160 T0                              ;Wait for hotend to warm up
+M82                                       ;absolute extrusion mode (from orginal Cura G-code)
 
 ; Homing and auto-levelling
 G28                                ;Home all axes
 G29                                ;Auto-levelling
+
+; Final warm up
+M140 S{material_bed_temperature_layer_0}       ;Set bed temp
+M190 S{material_bed_temperature_layer_0}       ;Wait for bed to warm up 
+M104 S{material_print_temperature_layer_0} T0  ;Set final hotend temp
+M109 S{material_print_temperature_layer_0} T0  ;Wait for hotend to warm up
 
 ; Print prime line
 G92 E0                             ;Reset Extruder
