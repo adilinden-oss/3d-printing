@@ -4,6 +4,29 @@ These are my settings for the "Obnoxious" Ender-5
  
 ## Settings
 
+### Hotend PID
+
+Results after PID tuning:
+
+```
+Send: M303 E0 S240 C10
+...cut...
+Recv:  Classic PID
+Recv:  Kp: 18.20 Ki: 1.27 Kd: 65.17
+Recv: PID Autotune finished! Put the last Kp, Ki and Kd constants from below into Configuration.h
+Recv: #define DEFAULT_Kp 18.20
+Recv: #define DEFAULT_Ki 1.27
+Recv: #define DEFAULT_Kd 65.17
+Recv: //action:notification Obnoxious E5 Ready.
+```
+
+Commands to save new values:
+
+```
+M301 P18.20 I1.27 D65.17
+M500
+```
+
 ### Printer
 
 * X (Width): 220.0 mm
