@@ -52,12 +52,12 @@ M500
 ```
 ; Adi Ender-5 Custom Start G-code
 
-; Concurrent preheating (overrride Cura steam engine auto generated)
-M140 S{material_bed_temperature_layer_0}       ;Start preheating the bed
-M104 S{material_print_temperature_layer_0} T0  ;Start preheating hotend
-M190 S{material_bed_temperature_layer_0}       ;Heat to Cura Bed setting 
-M109 S{material_print_temperature_layer_0} T0  ;Heat to Cura Hotend
-M82                                            ;absolute extrusion mode (from orginal Cura G-code)
+; Concurrent preheating 
+M140 S{material_bed_temperature_layer_0}  ;Set bed temp
+M104 S160 T0                              ;Set no-ooze hotend temp
+M190 S{material_bed_temperature_layer_0}  ;Wait for bed to warm up 
+M109 S160 T0                              ;Wait for hotend to warm up
+M82                                       ;absolute extrusion mode (from orginal Cura G-code)
 
 ; Mostly Cura default for Ender-5
 M201 X500.00 Y500.00 Z100.00 E5000.00  ;Setup machine max acceleration
@@ -70,6 +70,12 @@ M221 S100                              ;Reset Flowrate
 ; Homing and auto-levelling
 G28                                    ;Home
 G29                                    ;Auto-levelling
+
+; Final warm up
+M140 S{material_bed_temperature_layer_0}       ;Set bed temp
+M190 S{material_bed_temperature_layer_0}       ;Wait for bed to warm up 
+M104 S{material_print_temperature_layer_0} T0  ;Set final hotend temp
+M109 S{material_print_temperature_layer_0} T0  ;Wait for hotend to warm up
 
 ; Print prime line
 G92 E0                                 ;Reset Extruder
